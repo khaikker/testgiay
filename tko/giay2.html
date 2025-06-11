@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoStride - Collection</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#2D6A4F',secondary:'#74C69D'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+.product-card:hover .product-image {
+    transform: translateY(-10px) rotate(5deg);
+}
+.nav-item {
+    position: relative;
+    overflow: hidden;
+}
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2D6A4F;
+    transition: width 0.3s ease;
+}
+.nav-item:hover::after {
+    width: 100%;
+}
+.eco-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(45, 106, 79, 0.9);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 10;
+}
+input:focus, button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(45, 106, 79, 0.3);
+}
+.custom-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #2D6A4F;
+    border-radius: 4px;
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+.custom-checkbox:checked {
+    background-color: #2D6A4F;
+}
+.custom-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.custom-range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #e2e8f0;
+    outline: none;
+}
+.custom-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #2D6A4F;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.custom-range::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+.color-option {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.color-option:hover, .color-option.selected {
+    transform: scale(1.2);
+    border: 2px solid #2D6A4F;
+}
+.filter-section {
+    top: 70px;
+    z-index: 30;
+}
+.pagination-button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+.pagination-button.active {
+    background-color: #2D6A4F;
+    color: white;
+    border-color: #2D6A4F;
+}
+.pagination-button:hover:not(.active) {
+    border-color: #2D6A4F;
+    color: #2D6A4F;
+}
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading {
+    0% {
+        background-color: rgba(226, 232, 240, 0.6);
+    }
+    100% {
+        background-color: rgba(226, 232, 240, 0.9);
+    }
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Navigation -->
+<nav class="fixed w-full z-50 bg-white bg-opacity-90 backdrop-blur-sm shadow-sm transition-all duration-300">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <a href="https://readdy.ai/home/ea7c2d46-9812-48c7-af49-b8182b2cac55/11a85cbd-8dde-41ce-ab8a-9580202bcae5" data-readdy="true" class="text-3xl font-['Pacifico'] text-primary">logo</a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8" id="nav-menu">
+            <a href="giay.html" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Home</a>
+            <a href="giay.html" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Technology</a>
+            <a href="giay.html" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Sustainability</a>
+            <a href="giay.html" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Contact</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button id="search-button" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-colors duration-300">
+                <i class="ri-search-line ri-lg"></i>
+            </button>
+            <button id="user-button" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-colors duration-300">
+                <i class="ri-user-line ri-lg"></i>
+            </button>
+            <button id="cart-button" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-colors duration-300 relative">
+                <i class="ri-shopping-bag-line ri-lg"></i>
+                <span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full cart-count">3</span>
+            </button>
+            <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button">
+                <i class="ri-menu-line ri-lg"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-white absolute w-full left-0 top-full shadow-md" id="mobile-menu">
+        <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+            <a href="giay.html" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">Home</a>
+            <a href="giay.html" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">Technology</a>
+            <a href="giay.html" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">Sustainability</a>
+            <a href="giay.html" class="text-gray-800 hover:text-primary py-2">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Filter Section -->
+<div class="filter-section sticky bg-white border-b border-gray-200 pt-20">
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold mr-4">EcoStride Collection</h1>
+                <span class="text-gray-500 text-sm">24 products</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                <div class="relative w-full md:w-44">
+                    <button id="category-dropdown-button" class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-button text-gray-700 bg-white">
+                        <span id="selected-category">All Categories</span>
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div id="category-dropdown" class="hidden absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                        <div class="p-2 max-h-60 overflow-y-auto">
+                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="all">All Categories</div>
+                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="running">Running</div>
+                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="trail">Trail</div>
+                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="fitness">Fitness</div>
+                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="basketball">Basketball</div>
+                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="lifestyle">Lifestyle</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative w-full md:w-44">
+                    <button id="price-dropdown-button" class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-button text-gray-700 bg-white">
+                        <span id="selected-price">Price Range</span>
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div id="price-dropdown" class="hidden absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-gray-600">Min: $<span id="min-price-display">0</span></span>
+                                <span class="text-sm text-gray-600">Max: $<span id="max-price-display">300</span></span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-4">
+                                <input type="range" id="min-price-range" min="0" max="300" value="0" class="custom-range">
+                                <input type="range" id="max-price-range" min="0" max="300" value="300" class="custom-range">
+                            </div>
+                            <button id="apply-price" class="w-full bg-primary text-white py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">Apply</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative w-full md:w-44">
+                    <button id="color-dropdown-button" class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-button text-gray-700 bg-white">
+                        <span id="selected-color">Color</span>
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div id="color-dropdown" class="hidden absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                        <div class="p-4">
+                            <div class="flex flex-wrap gap-3">
+                                <div class="color-filter-option cursor-pointer" data-color="green">
+                                    <div class="color-option bg-primary"></div>
+                                    <span class="text-xs text-gray-700 mt-1 block text-center">Green</span>
+                                </div>
+                                <div class="color-filter-option cursor-pointer" data-color="brown">
+                                    <div class="color-option bg-[#8B4513]"></div>
+                                    <span class="text-xs text-gray-700 mt-1 block text-center">Brown</span>
+                                </div>
+                                <div class="color-filter-option cursor-pointer" data-color="gray">
+                                    <div class="color-option bg-[#708090]"></div>
+                                    <span class="text-xs text-gray-700 mt-1 block text-center">Gray</span>
+                                </div>
+                                <div class="color-filter-option cursor-pointer" data-color="black">
+                                    <div class="color-option bg-black"></div>
+                                    <span class="text-xs text-gray-700 mt-1 block text-center">Black</span>
+                                </div>
+                                <div class="color-filter-option cursor-pointer" data-color="blue">
+                                    <div class="color-option bg-[#4682B4]"></div>
+                                    <span class="text-xs text-gray-700 mt-1 block text-center">Blue</span>
+                                </div>
+                                <div class="color-filter-option cursor-pointer" data-color="orange">
+                                    <div class="color-option bg-[#FF8C00]"></div>
+                                    <span class="text-xs text-gray-700 mt-1 block text-center">Orange</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative w-full md:w-44">
+                    <button id="sort-dropdown-button" class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-button text-gray-700 bg-white">
+                        <span id="selected-sort">Sort By: Newest</span>
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div id="sort-dropdown" class="hidden absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                        <div class="p-2">
+                            <div class="sort-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="newest">Newest</div>
+                            <div class="sort-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="price-low">Price: Low to High</div>
+                            <div class="sort-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="price-high">Price: High to Low</div>
+                            <div class="sort-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="popular">Most Popular</div>
+                            <div class="sort-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="rating">Highest Rated</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Active Filters -->
+        <div id="active-filters" class="flex flex-wrap items-center gap-2 mt-4">
+            <!-- Active filters will be added here dynamically -->
+        </div>
+    </div>
+</div>
+
+<!-- Product Grid -->
+<section class="py-10">
+    <div class="container mx-auto px-4">
+        <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Product 1 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">New Arrival</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520sleek%2520trail%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520mountain%2520terrain%252C%2520featuring%2520rugged%2520outsole%2520patterns%2520resembling%2520rock%2520formations%2520and%2520a%2520breathable%2520upper%2520with%2520topographic%2520map-like%2520patterns.%2520The%2520shoe%2520has%2520earthy%2520brown%2520and%2520green%2520tones%2520with%2520orange%2520accents.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product1&orientation=landscape" alt="TrailForce X1 Sports Shoe" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">TrailForce X1</h3>
+                    <p class="text-gray-600 mb-4">Inspired by mountain terrain for ultimate trail performance</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-half-fill text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(42)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$159.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">Bestseller</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520lightweight%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520flowing%2520water%252C%2520featuring%2520fluid%2520wave-like%2520patterns%2520on%2520the%2520sides%2520and%2520a%2520flexible%2520mesh%2520upper%2520in%2520blue%2520and%2520teal%2520tones.%2520The%2520outsole%2520has%2520a%2520pattern%2520resembling%2520water%2520ripples.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product2&orientation=landscape" alt="AquaFlow Runner Sports Shoe" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">AquaFlow Runner</h3>
+                    <p class="text-gray-600 mb-4">Water-inspired design for smooth, flowing strides</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(87)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$149.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">Limited Edition</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520high-performance%2520basketball%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520bird%2520wings%252C%2520featuring%2520feather-like%2520overlays%2520and%2520an%2520aerodynamic%2520silhouette.%2520The%2520shoe%2520has%2520a%2520black%2520base%2520with%2520vibrant%2520purple%2520and%2520gold%2520accents.%2520The%2520outsole%2520pattern%2520resembles%2520bird%2520talons%2520for%2520grip.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product3&orientation=landscape" alt="SkyRise Pro Sports Shoe" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">SkyRise Pro</h3>
+                    <p class="text-gray-600 mb-4">Bird-inspired design for maximum vertical leap</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-line text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(56)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$179.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">Most Popular</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520minimalist%2520cross-training%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520bamboo%2520structures%252C%2520featuring%2520a%2520lightweight%2520knit%2520upper%2520with%2520geometric%2520patterns%2520and%2520a%2520flexible%2520sole.%2520The%2520shoe%2520has%2520natural%2520beige%2520and%2520sage%2520green%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product4&orientation=landscape" alt="BambooFlex Trainer" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">BambooFlex Trainer</h3>
+                    <p class="text-gray-600 mb-4">Bamboo-inspired design for versatile training</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-half-fill text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(103)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$139.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">New Collection</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520high-tech%2520tennis%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520honeycomb%2520structures%252C%2520featuring%2520hexagonal%2520patterns%2520on%2520the%2520sides%2520and%2520a%2520responsive%2520cushioning%2520system.%2520The%2520shoe%2520has%2520white%2520and%2520golden%2520yellow%2520accents.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product5&orientation=landscape" alt="HoneyCourt Pro" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">HoneyCourt Pro</h3>
+                    <p class="text-gray-600 mb-4">Honeycomb-inspired stability for court sports</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-line text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(39)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$169.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">Premium</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520premium%2520lifestyle%2520sneaker%2520with%2520a%2520design%2520inspired%2520by%2520desert%2520landscapes%252C%2520featuring%2520sand%2520dune%2520patterns%2520and%2520a%2520comfortable%2520knit%2520upper.%2520The%2520shoe%2520has%2520warm%2520sand%2520and%2520sunset%2520orange%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product6&orientation=landscape" alt="DesertDrift Lifestyle" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">DesertDrift Lifestyle</h3>
+                    <p class="text-gray-600 mb-4">Desert-inspired comfort for everyday wear</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(78)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$129.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">Eco-Friendly</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520high-end%2520modern%2520sports%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520tree%2520roots%2520and%2520leaves%252C%2520featuring%2520organic%2520flowing%2520lines%2520and%2520natural%2520textures.%2520The%2520shoe%2520has%2520a%2520forest%2520green%2520and%2520earth%2520tone%2520color%2520scheme%2520with%2520subtle%2520leaf%2520vein%2520patterns%2520on%2520the%2520sides.%2520The%2520shoe%2520is%2520photographed%2520from%2520a%25203%252F4%2520angle%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product7&orientation=landscape" alt="EcoStride Pro" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">EcoStride Pro</h3>
+                    <p class="text-gray-600 mb-4">Our flagship model with tree root stability technology</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-half-fill text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(126)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$189.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 8 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">New Season</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520lightweight%2520hiking%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520forest%2520floor%2520textures%252C%2520featuring%2520a%2520breathable%2520upper%2520with%2520leaf-like%2520patterns%2520and%2520a%2520rugged%2520outsole.%2520The%2520shoe%2520has%2520moss%2520green%2520and%2520bark%2520brown%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product8&orientation=landscape" alt="ForestPath Hiker" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">ForestPath Hiker</h3>
+                    <p class="text-gray-600 mb-4">Forest floor-inspired traction for hiking adventures</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-line text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(47)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$164.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 9 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">Recycled Materials</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520casual%2520slip-on%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520ocean%2520waves%252C%2520featuring%2520a%2520knit%2520upper%2520with%2520wave-like%2520patterns%2520and%2520a%2520comfortable%2520sole.%2520The%2520shoe%2520has%2520ocean%2520blue%2520and%2520seafoam%2520green%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product9&orientation=landscape" alt="OceanWave Slip-On" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">OceanWave Slip-On</h3>
+                    <p class="text-gray-600 mb-4">Ocean-inspired comfort made from recycled plastics</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-half-fill text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(92)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$119.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 10 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">Limited Stock</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520high-performance%2520cycling%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520insect%2520exoskeletons%252C%2520featuring%2520a%2520rigid%2520carbon%2520fiber%2520sole%2520and%2520a%2520secure%2520fit%2520system.%2520The%2520shoe%2520has%2520black%2520and%2520bright%2520red%2520accents.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product10&orientation=landscape" alt="VeloSwift Cycling" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">VeloSwift Cycling</h3>
+                    <p class="text-gray-600 mb-4">Insect exoskeleton-inspired rigidity for cyclists</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(64)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$199.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 11 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">Bestseller</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520minimalist%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520sand%2520dunes%252C%2520featuring%2520a%2520lightweight%2520mesh%2520upper%2520with%2520flowing%2520lines%2520and%2520a%2520responsive%2520sole.%2520The%2520shoe%2520has%2520desert%2520tan%2520and%2520sunset%2520orange%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product11&orientation=landscape" alt="DuneRunner Lite" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">DuneRunner Lite</h3>
+                    <p class="text-gray-600 mb-4">Sand dune-inspired lightweight running experience</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-half-fill text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(118)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$144.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 12 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-gray-100">
+                    <span class="eco-badge">Eco-Friendly</span>
+                    <img src="https://readdy.ai/api/search-image?query=A%2520winter%2520hiking%2520boot%2520with%2520a%2520design%2520inspired%2520by%2520pine%2520cones%252C%2520featuring%2520a%2520waterproof%2520upper%2520with%2520scale-like%2520patterns%2520and%2520an%2520insulated%2520lining.%2520The%2520boot%2520has%2520dark%2520brown%2520and%2520forest%2520green%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product12&orientation=landscape" alt="PineCone Alpine Boot" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">PineCone Alpine Boot</h3>
+                    <p class="text-gray-600 mb-4">Pine cone-inspired protection for winter trails</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-fill text-yellow-400"></i>
+                            <i class="ri-star-line text-yellow-400"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm">(53)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-primary">$184.99</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Empty State (Hidden by default) -->
+        <div id="empty-state" class="hidden py-16 text-center">
+            <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center text-gray-400">
+                <i class="ri-search-line ri-3x"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">No products found</h3>
+            <p class="text-gray-600 mb-6">We couldn't find any products matching your criteria.</p>
+            <button id="clear-filters" class="bg-white border border-primary text-primary px-6 py-2 rounded-button font-medium hover:bg-primary/5 transition-all duration-300 whitespace-nowrap">
+                Clear All Filters
+            </button>
+        </div>
+        
+        <!-- Loading State (Hidden by default) -->
+        <div id="loading-state" class="hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Skeleton cards -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 skeleton"></div>
+                    <div class="p-6">
+                        <div class="h-6 w-3/4 skeleton rounded mb-2"></div>
+                        <div class="h-4 w-full skeleton rounded mb-4"></div>
+                        <div class="h-4 w-1/4 skeleton rounded mb-4"></div>
+                        <div class="flex justify-between items-center">
+                            <div class="h-6 w-1/4 skeleton rounded"></div>
+                            <div class="h-10 w-1/3 skeleton rounded"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 skeleton"></div>
+                    <div class="p-6">
+                        <div class="h-6 w-3/4 skeleton rounded mb-2"></div>
+                        <div class="h-4 w-full skeleton rounded mb-4"></div>
+                        <div class="h-4 w-1/4 skeleton rounded mb-4"></div>
+                        <div class="flex justify-between items-center">
+                            <div class="h-6 w-1/4 skeleton rounded"></div>
+                            <div class="h-10 w-1/3 skeleton rounded"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 skeleton"></div>
+                    <div class="p-6">
+                        <div class="h-6 w-3/4 skeleton rounded mb-2"></div>
+                        <div class="h-4 w-full skeleton rounded mb-4"></div>
+                        <div class="h-4 w-1/4 skeleton rounded mb-4"></div>
+                        <div class="flex justify-between items-center">
+                            <div class="h-6 w-1/4 skeleton rounded"></div>
+                            <div class="h-10 w-1/3 skeleton rounded"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 skeleton"></div>
+                    <div class="p-6">
+                        <div class="h-6 w-3/4 skeleton rounded mb-2"></div>
+                        <div class="h-4 w-full skeleton rounded mb-4"></div>
+                        <div class="h-4 w-1/4 skeleton rounded mb-4"></div>
+                        <div class="flex justify-between items-center">
+                            <div class="h-6 w-1/4 skeleton rounded"></div>
+                            <div class="h-10 w-1/3 skeleton rounded"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="flex flex-col md:flex-row justify-between items-center mt-12">
+            <div class="mb-4 md:mb-0">
+                <span class="text-gray-600">Showing 1-12 of 24 products</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <button class="pagination-button" disabled>
+                    <i class="ri-arrow-left-s-line"></i>
+                </button>
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
+                <div class="ml-4">
+                    <select id="items-per-page" class="border border-gray-300 rounded-button px-3 py-2 text-gray-700 focus:border-primary focus:ring-2 focus:ring-primary/30">
+                        <option value="12">12 per page</option>
+                        <option value="24">24 per page</option>
+                        <option value="36">36 per page</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Shopping Cart Panel -->
+<div id="cart-panel" class="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+    <div class="flex flex-col h-full">
+        <div class="flex justify-between items-center p-6 border-b">
+            <h3 class="text-xl font-bold">Shopping Cart (3)</h3>
+            <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                <i class="ri-close-line ri-2x"></i>
+            </button>
+        </div>
+        <div class="flex-1 overflow-y-auto p-6">
+            <!-- Cart Items -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520high-end%2520modern%2520sports%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520tree%2520roots%2520and%2520leaves%252C%2520featuring%2520organic%2520flowing%2520lines%2520and%2520natural%2520textures%2520in%2520forest%2520green%2520color%2520scheme&width=100&height=100&seq=cart1&orientation=squarish" alt="EcoStride Pro" class="w-20 h-20 object-cover rounded-lg">
+                    <div class="flex-1">
+                        <h4 class="font-medium">EcoStride Pro</h4>
+                        <p class="text-sm text-gray-600">Size: US 9 | Color: Forest Green</p>
+                        <div class="flex items-center gap-2 mt-2">
+                            <button class="w-6 h-6 flex items-center justify-center border rounded-full">-</button>
+                            <span class="w-8 text-center">1</span>
+                            <button class="w-6 h-6 flex items-center justify-center border rounded-full">+</button>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-medium">$189.99</p>
+                        <button class="text-red-500 hover:text-red-700 mt-2">
+                            <i class="ri-delete-bin-line"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520lightweight%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520flowing%2520water%252C%2520featuring%2520fluid%2520wave-like%2520patterns%2520on%2520the%2520sides%2520and%2520a%2520flexible%2520mesh%2520upper%2520in%2520blue%2520and%2520teal%2520tones&width=100&height=100&seq=cart2&orientation=squarish" alt="AquaFlow Runner" class="w-20 h-20 object-cover rounded-lg">
+                    <div class="flex-1">
+                        <h4 class="font-medium">AquaFlow Runner</h4>
+                        <p class="text-sm text-gray-600">Size: US 10 | Color: Blue</p>
+                        <div class="flex items-center gap-2 mt-2">
+                            <button class="w-6 h-6 flex items-center justify-center border rounded-full">-</button>
+                            <span class="w-8 text-center">1</span>
+                            <button class="w-6 h-6 flex items-center justify-center border rounded-full">+</button>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-medium">$149.99</p>
+                        <button class="text-red-500 hover:text-red-700 mt-2">
+                            <i class="ri-delete-bin-line"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520minimalist%2520cross-training%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520bamboo%2520structures%252C%2520featuring%2520a%2520lightweight%2520knit%2520upper%2520with%2520geometric%2520patterns%2520and%2520a%2520flexible%2520sole&width=100&height=100&seq=cart3&orientation=squarish" alt="BambooFlex Trainer" class="w-20 h-20 object-cover rounded-lg">
+                    <div class="flex-1">
+                        <h4 class="font-medium">BambooFlex Trainer</h4>
+                        <p class="text-sm text-gray-600">Size: US 8.5 | Color: Green</p>
+                        <div class="flex items-center gap-2 mt-2">
+                            <button class="w-6 h-6 flex items-center justify-center border rounded-full">-</button>
+                            <span class="w-8 text-center">1</span>
+                            <button class="w-6 h-6 flex items-center justify-center border rounded-full">+</button>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-medium">$139.99</p>
+                        <button class="text-red-500 hover:text-red-700 mt-2">
+                            <i class="ri-delete-bin-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-6 border-t">
+            <div class="flex justify-between mb-4">
+                <span class="text-gray-600">Subtotal</span>
+                <span class="font-medium">$479.97</span>
+            </div>
+            <button class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                Checkout
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Search Modal -->
+<div id="search-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl">
+        <div class="bg-white rounded-lg p-6 mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">Search Products</h3>
+                <button id="close-search" class="text-gray-500 hover:text-gray-700">
+                    <i class="ri-close-line ri-2x"></i>
+                </button>
+            </div>
+            <div class="mb-6">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search products..." class="w-full px-4 py-3 rounded-button border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 mb-4">
+                    <i class="ri-search-line absolute right-3 top-3 text-gray-400"></i>
+                </div>
+                <div class="flex flex-wrap gap-4 mb-4">
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
+                        <div class="flex items-center gap-2">
+                            <input type="number" id="min-price" placeholder="Min" class="w-full px-3 py-2 rounded-button border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30">
+                            <span class="text-gray-500">-</span>
+                            <input type="number" id="max-price" placeholder="Max" class="w-full px-3 py-2 rounded-button border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30">
+                        </div>
+                    </div>
+                    <div class="w-32">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                        <select id="category-filter" class="w-full px-3 py-2 rounded-button border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 pr-8">
+                            <option value="">All</option>
+                            <option value="running">Running</option>
+                            <option value="trail">Trail</option>
+                            <option value="fitness">Fitness</option>
+                            <option value="basketball">Basketball</option>
+                            <option value="lifestyle">Lifestyle</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="search-submit" class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                    Search
+                </button>
+            </div>
+            <div id="search-results" class="space-y-4"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <a href="https://readdy.ai/home/ea7c2d46-9812-48c7-af49-b8182b2cac55/11a85cbd-8dde-41ce-ab8a-9580202bcae5" data-readdy="true" class="text-3xl font-['Pacifico'] text-white mb-6 inline-block">logo</a>
+                <p class="text-gray-400 mb-6">Revolutionizing athletic footwear through nature-inspired design and sustainable practices.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors duration-300">
+                        <i class="ri-facebook-fill ri-lg"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors duration-300">
+                        <i class="ri-twitter-x-fill ri-lg"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors duration-300">
+                        <i class="ri-instagram-fill ri-lg"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors duration-300">
+                        <i class="ri-youtube-fill ri-lg"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6">Shop</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">All Products</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Running</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Trail</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Fitness</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Basketball</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Limited Editions</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6">Company</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Sustainability</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Technology</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Careers</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Press</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-6">Support</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Help Center</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Shipping & Returns</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Size Guide</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Track Order</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 EcoStride. All rights reserved.</p>
+            <div class="flex items-center space-x-4">
+                <span class="text-gray-400 text-sm">We accept:</span>
+                <div class="flex space-x-2">
+                    <i class="ri-visa-fill ri-lg"></i>
+                    <i class="ri-mastercard-fill ri-lg"></i>
+                    <i class="ri-paypal-fill ri-lg"></i>
+                    <i class="ri-apple-fill ri-lg"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script id="navigation-script">
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const nav = document.querySelector('nav');
+    
+    // Mobile menu toggle
+    mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+    
+    // Scroll event for navigation
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            nav.classList.add('shadow-md');
+            nav.classList.remove('bg-opacity-90');
+            nav.classList.add('bg-opacity-95');
+        } else {
+            nav.classList.remove('shadow-md');
+            nav.classList.add('bg-opacity-90');
+            nav.classList.remove('bg-opacity-95');
+        }
+    });
+});
+</script>
+
+<script id="filter-dropdown-script">
+document.addEventListener('DOMContentLoaded', function() {
+    // Category dropdown
+    const categoryButton = document.getElementById('category-dropdown-button');
+    const categoryDropdown = document.getElementById('category-dropdown');
+    const categoryOptions = document.querySelectorAll('.category-option');
+    const selectedCategory = document.getElementById('selected-category');
+    
+    // Price dropdown
+    const priceButton = document.getElementById('price-dropdown-button');
+    const priceDropdown = document.getElementById('price-dropdown');
+    const minPriceRange = document.getElementById('min-price-range');
+    const maxPriceRange = document.getElementById('max-price-range');
+    const minPriceDisplay = document.getElementById('min-price-display');
+    const maxPriceDisplay = document.getElementById('max-price-display');
+    const applyPriceButton = document.getElementById('apply-price');
+    const selectedPrice = document.getElementById('selected-price');
+    
+    // Color dropdown
+    const colorButton = document.getElementById('color-dropdown-button');
+    const colorDropdown = document.getElementById('color-dropdown');
+    const colorOptions = document.querySelectorAll('.color-filter-option');
+    const selectedColor = document.getElementById('selected-color');
+    
+    // Sort dropdown
+    const sortButton = document.getElementById('sort-dropdown-button');
+    const sortDropdown = document.getElementById('sort-dropdown');
+    const sortOptions = document.querySelectorAll('.sort-option');
+    const selectedSort = document.getElementById('selected-sort');
+    
+    // Active filters container
+    const activeFiltersContainer = document.getElementById('active-filters');
+    
+    // Toggle category dropdown
+    categoryButton.addEventListener('click', function() {
+        categoryDropdown.classList.toggle('hidden');
+        priceDropdown.classList.add('hidden');
+        colorDropdown.classList.add('hidden');
+        sortDropdown.classList.add('hidden');
+    });
+    
+    // Handle category selection
+    categoryOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const value = this.getAttribute('data-value');
+            const text = this.textContent;
+            selectedCategory.textContent = text;
+            categoryDropdown.classList.add('hidden');
+            
+            if (value !== 'all') {
+                addActiveFilter('category', text, value);
+                simulateLoading();
+            } else {
+                removeActiveFilter('category');
+                simulateLoading();
+            }
+        });
+    });
+    
+    // Toggle price dropdown
+    priceButton.addEventListener('click', function() {
+        priceDropdown.classList.toggle('hidden');
+        categoryDropdown.classList.add('hidden');
+        colorDropdown.classList.add('hidden');
+        sortDropdown.classList.add('hidden');
+    });
+    
+    // Handle price range input
+    minPriceRange.addEventListener('input', function() {
+        minPriceDisplay.textContent = this.value;
+        if (parseInt(minPriceRange.value) > parseInt(maxPriceRange.value)) {
+            maxPriceRange.value = minPriceRange.value;
+            maxPriceDisplay.textContent = maxPriceRange.value;
+        }
+    });
+    
+    maxPriceRange.addEventListener('input', function() {
+        maxPriceDisplay.textContent = this.value;
+        if (parseInt(maxPriceRange.value) < parseInt(minPriceRange.value)) {
+            minPriceRange.value = maxPriceRange.value;
+            minPriceDisplay.textContent = minPriceRange.value;
+        }
+    });
+    
+    // Apply price filter
+    applyPriceButton.addEventListener('click', function() {
+        const min = minPriceRange.value;
+        const max = maxPriceRange.value;
+        selectedPrice.textContent = `$${min} - $${max}`;
+        priceDropdown.classList.add('hidden');
+        
+        addActiveFilter('price', `$${min} - $${max}`, `${min}-${max}`);
+        simulateLoading();
+    });
+    
+    // Toggle color dropdown
+    colorButton.addEventListener('click', function() {
+        colorDropdown.classList.toggle('hidden');
+        categoryDropdown.classList.add('hidden');
+        priceDropdown.classList.add('hidden');
+        sortDropdown.classList.add('hidden');
+    });
+    
+    // Handle color selection
+    colorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const color = this.getAttribute('data-color');
+            const colorName = this.querySelector('span').textContent;
+            
+            // Toggle selection
+            const colorOption = this.querySelector('.color-option');
+            if (colorOption.classList.contains('selected')) {
+                colorOption.classList.remove('selected');
+                removeActiveFilter(`color-${color}`);
+            } else {
+                colorOption.classList.add('selected');
+                addActiveFilter(`color-${color}`, colorName, color);
+            }
+            
+            // Update dropdown button text
+            const selectedColors = document.querySelectorAll('.color-filter-option .color-option.selected');
+            if (selectedColors.length === 0) {
+                selectedColor.textContent = 'Color';
+            } else if (selectedColors.length === 1) {
+                selectedColor.textContent = selectedColors[0].nextElementSibling.textContent;
+            } else {
+                selectedColor.textContent = `${selectedColors.length} Colors`;
+            }
+            
+            simulateLoading();
+        });
+    });
+    
+    // Toggle sort dropdown
+    sortButton.addEventListener('click', function() {
+        sortDropdown.classList.toggle('hidden');
+        categoryDropdown.classList.add('hidden');
+        priceDropdown.classList.add('hidden');
+        colorDropdown.classList.add('hidden');
+    });
+    
+    // Handle sort selection
+    sortOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const value = this.getAttribute('data-value');
+            const text = this.textContent;
+            selectedSort.textContent = `Sort By: ${text}`;
+            sortDropdown.classList.add('hidden');
+            simulateLoading();
+        });
+    });
+    
+       
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!categoryButton.contains(event.target) && !categoryDropdown.contains(event.target)) {
+            categoryDropdown.classList.add('hidden');
+        }
+        if (!priceButton.contains(event.target) && !priceDropdown.contains(event.target)) {
+            priceDropdown.classList.add('hidden');
+        }
+        if (!colorButton.contains(event.target) && !colorDropdown.contains(event.target)) {
+            colorDropdown.classList.add('hidden');
+        }
+        if (!sortButton.contains(event.target) && !sortDropdown.contains(event.target)) {
+            sortDropdown.classList.add('hidden');
+        }
+    });
+    
+    // Function to add active filter
+    function addActiveFilter(id, text, value) {
+        // Remove existing filter with same id
+        removeActiveFilter(id);
+        
+        // Create new filter tag
+        const filterTag = document.createElement('div');
+        filterTag.id = `filter-${id}`;
+        filterTag.className = 'flex items-center bg-gray-100 rounded-full px-3 py-1 text-sm';
+        filterTag.innerHTML = `
+            <span>${text}</span>
+            <button class="ml-2 text-gray-500 hover:text-gray-700" data-filter-id="${id}">
+                <i class="ri-close-line"></i>
+            </button>
+        `;
+        
+        // Add click event to remove button
+        filterTag.querySelector('button').addEventListener('click', function() {
+            const filterId = this.getAttribute('data-filter-id');
+            removeActiveFilter(filterId);
+            
+            // Reset corresponding filter UI
+            if (filterId === 'category') {
+                selectedCategory.textContent = 'All Categories';
+            } else if (filterId === 'price') {
+                selectedPrice.textContent = 'Price Range';
+                minPriceRange.value = 0;
+                maxPriceRange.value = 300;
+                minPriceDisplay.textContent = '0';
+                maxPriceDisplay.textContent = '300';
+            } else if (filterId.startsWith('color-')) {
+                const color = filterId.split('-')[1];
+                const colorOption = document.querySelector(`.color-filter-option[data-color="${color}"] .color-option`);
+                if (colorOption) colorOption.classList.remove('selected');
+                
+                // Update color dropdown text
+                const selectedColors = document.querySelectorAll('.color-filter-option .color-option.selected');
+                if (selectedColors.length === 0) {
+                    selectedColor.textContent = 'Color';
+                } else if (selectedColors.length === 1) {
+                    selectedColor.textContent = selectedColors[0].nextElementSibling.textContent;
+                } else {
+                    selectedColor.textContent = `${selectedColors.length} Colors`;
+                }
+            }
+            
+            simulateLoading();
+        });
+        
+        // Add to active filters container
+        activeFiltersContainer.appendChild(filterTag);
+    }
+    
+    // Function to remove active filter
+    function removeActiveFilter(id) {
+        const filterTag = document.getElementById(`filter-${id}`);
+        if (filterTag) {
+            filterTag.remove();
+        }
+    }
+    
+    // Clear all filters button
+    const clearFiltersButton = document.getElementById('clear-filters');
+    clearFiltersButton.addEventListener('click', function() {
+        // Clear all active filters
+        activeFiltersContainer.innerHTML = '';
+        
+        // Reset all filter UI
+        selectedCategory.textContent = 'All Categories';
+        selectedPrice.textContent = 'Price Range';
+        selectedColor.textContent = 'Color';
+        selectedSort.textContent = 'Sort By: Newest';
+        
+        minPriceRange.value = 0;
+        maxPriceRange.value = 300;
+        minPriceDisplay.textContent = '0';
+        maxPriceDisplay.textContent = '300';
+        
+        document.querySelectorAll('.color-filter-option .color-option').forEach(option => {
+            option.classList.remove('selected');
+        });
+        
+        // Show products
+        document.getElementById('products-grid').classList.remove('hidden');
+        document.getElementById('empty-state').classList.add('hidden');
+        
+        simulateLoading();
+    });
+    
+    // Function to simulate loading state
+    function simulateLoading() {
+        const productsGrid = document.getElementById('products-grid');
+        const loadingState = document.getElementById('loading-state');
+        const emptyState = document.getElementById('empty-state');
+        
+        // Show loading state
+        productsGrid.classList.add('hidden');
+        emptyState.classList.add('hidden');
+        loadingState.classList.remove('hidden');
+        
+        // Simulate API call delay
+        setTimeout(() => {
+            loadingState.classList.add('hidden');
+            
+            // Randomly show empty state or products (10% chance of empty state)
+            if (Math.random() < 0.1 && activeFiltersContainer.children.length > 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                productsGrid.classList.remove('hidden');
+            }
+        }, 800);
+    }
+});
+</script>
+
+<script id="cart-and-search-script">
+document.addEventListener('DOMContentLoaded', function() {
+    // Cart state
+    let cartItems = [];  // Initialize empty cart
+    
+    // Cart DOM elements
+    const cartButton = document.getElementById('cart-button');
+    const cartPanel = document.getElementById('cart-panel');
+    const closeCart = document.getElementById('close-cart');
+    const cartCount = document.querySelector('.cart-count');
+    const cartItemsContainer = document.querySelector('#cart-panel .space-y-6');
+    const subtotalElement = document.querySelector('#cart-panel .flex.justify-between span:last-child');
+    
+    cartButton.addEventListener('click', () => {
+        cartPanel.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    closeCart.addEventListener('click', () => {
+        cartPanel.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+    });
+    
+    // Search functionality
+    const searchButton = document.getElementById('search-button');
+    const searchModal = document.getElementById('search-modal');
+    const closeSearch = document.getElementById('close-search');
+    
+    searchButton.addEventListener('click', () => {
+        searchModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('search-input').focus();
+    });
+    
+    closeSearch.addEventListener('click', () => {
+        searchModal.classList.add('hidden');
+        document.body.style.overflow = '';
+    });
+    
+    // Close modals when clicking outside
+    searchModal.addEventListener('click', function(event) {
+        if (event.target === searchModal) {
+            searchModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Quantity controls in cart
+    const quantityButtons = document.querySelectorAll('.flex-1 .flex button');
+    quantityButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const quantitySpan = this.parentElement.querySelector('span');
+            let quantity = parseInt(quantitySpan.textContent);
+            
+            if (this.textContent === '+') {
+                quantity++;
+            } else if (this.textContent === '-' && quantity > 1) {
+                quantity--;
+            }
+            
+            quantitySpan.textContent = quantity;
+        });
+    });
+    
+    // Pagination
+    const paginationButtons = document.querySelectorAll('.pagination-button');
+    paginationButtons.forEach(button => {
+        if (!button.classList.contains('active') && !button.disabled) {
+            button.addEventListener('click', function() {
+                paginationButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Simulate page change
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                
+                simulateLoading();
+            });
+        }
+    });
+    
+    // Items per page selector
+    const itemsPerPageSelect = document.getElementById('items-per-page');
+    itemsPerPageSelect.addEventListener('change', function() {
+        simulateLoading();
+    });
+    
+    // Function to simulate loading state
+    function simulateLoading() {
+        const productsGrid = document.getElementById('products-grid');
+        const loadingState = document.getElementById('loading-state');
+        
+        // Show loading state
+        productsGrid.classList.add('hidden');
+        loadingState.classList.remove('hidden');
+        
+        // Simulate API call delay
+        setTimeout(() => {
+            loadingState.classList.add('hidden');
+            productsGrid.classList.remove('hidden');
+        }, 800);
+    }
+});
+</script>
+
+<script id="product-interaction-script">
+document.addEventListener('DOMContentLoaded', function() {
+    // Add to cart buttons
+    const addToCartButtons = document.querySelectorAll('.product-card button');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Get product info
+            const productCard = this.closest('.product-card');
+            const productName = productCard.querySelector('h3').textContent;
+            const productPrice = productCard.querySelector('.text-primary').textContent;
+            
+            // Show add to cart notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-20 right-4 bg-primary text-white px-4 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="ri-check-line ri-lg mr-2"></i>
+                    <div>
+                        <p class="font-medium">${productName} added to cart</p>
+                        <p class="text-sm">${productPrice}</p>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            // Animate notification
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Update cart count
+            const cartCount = document.querySelector('.cart-count');
+            cartCount.textContent = parseInt(cartCount.textContent) + 1;
+            
+            // Remove notification after delay
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        });
+    });
+    
+    // Product card hover effects
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const button = this.querySelector('button');
+            button.classList.add('scale-105');
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const button = this.querySelector('button');
+            button.classList.remove('scale-105');
+        });
+    });
+});
+</script>
+</body>
+</html>
