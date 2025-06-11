@@ -113,8 +113,8 @@ input:focus, button:focus {
     border: 2px solid #2D6A4F;
 }
 .filter-section {
-    top: 70px;
-    z-index: 30;
+    top: 50px;
+    z-index: 20;
 }
 .pagination-button {
     width: 40px;
@@ -155,19 +155,13 @@ input:focus, button:focus {
         <div class="flex items-center">
             <a href="https://readdy.ai/home/ea7c2d46-9812-48c7-af49-b8182b2cac55/11a85cbd-8dde-41ce-ab8a-9580202bcae5" data-readdy="true" class="text-3xl font-['Pacifico'] text-primary">logo</a>
         </div>
-        <div class="hidden md:flex items-center space-x-8" id="nav-menu">
-            <a href="giay.html" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Home</a>
-            <a href="giay.html" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Technology</a>
-            <a href="giay.html" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Sustainability</a>
-            <a href="giay.html" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Contact</a>
+        <div class="hidden md:flex items-center space-x-8" id="nav-menu">            <a href="giay.html" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Home</a>
+            <a href="giay.html#technology" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Technology</a>
+            <a href="giay.html#sustainability" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Sustainability</a>
+            <a href="giay.html#contact" class="nav-item text-gray-800 hover:text-primary transition-colors duration-300">Contact</a>
         </div>
         <div class="flex items-center space-x-4">
-            <button id="search-button" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-colors duration-300">
-                <i class="ri-search-line ri-lg"></i>
-            </button>
-            <button id="user-button" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-colors duration-300">
-                <i class="ri-user-line ri-lg"></i>
-            </button>
+            
             <button id="cart-button" class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-colors duration-300 relative">
                 <i class="ri-shopping-bag-line ri-lg"></i>
                 <span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full cart-count">3</span>
@@ -179,11 +173,10 @@ input:focus, button:focus {
     </div>
     <!-- Mobile Menu -->
     <div class="md:hidden hidden bg-white absolute w-full left-0 top-full shadow-md" id="mobile-menu">
-        <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
-            <a href="giay.html" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">Home</a>
-            <a href="giay.html" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">Technology</a>
-            <a href="giay.html" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">Sustainability</a>
-            <a href="giay.html" class="text-gray-800 hover:text-primary py-2">Contact</a>
+        <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">            <a href="giay.html" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">Home</a>
+            <a href="giay.html#technology" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">Technology</a>
+            <a href="giay.html#sustainability" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">Sustainability</a>
+            <a href="giay.html#contact" class="text-gray-800 hover:text-primary py-2">Contact</a>
         </div>
     </div>
 </nav>
@@ -301,10 +294,15 @@ input:focus, button:focus {
     <div class="container mx-auto px-4">
         <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             <!-- Product 1 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">New Arrival</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520sleek%2520trail%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520mountain%2520terrain%252C%2520featuring%2520rugged%2520outsole%2520patterns%2520resembling%2520rock%2520formations%2520and%2520a%2520breathable%2520upper%2520with%2520topographic%2520map-like%2520patterns.%2520The%2520shoe%2520has%2520earthy%2520brown%2520and%2520green%2520tones%2520with%2520orange%2520accents.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product1&orientation=landscape" alt="TrailForce X1 Sports Shoe" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520sleek%2520trail%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520mountain%2520terrain%252C%2520featuring%2520rugged%2520outsole%2520patterns%2520resembling%2520rock%2520formations%2520and%2520a%2520breathable%2520upper%2520with%2520topographic%2520map-like%2520patterns.%2520The%2520shoe%2520has%2520earthy%2520brown%2520and%2520green%2520tones%2520with%2520orange%2520accents.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product1&orientation=landscape" alt="TrailForce X1 Sports Shoe" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">TrailForce X1</h3>
@@ -329,10 +327,15 @@ input:focus, button:focus {
             </div>
             
             <!-- Product 2 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">Bestseller</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520lightweight%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520flowing%2520water%252C%2520featuring%2520fluid%2520wave-like%2520patterns%2520on%2520the%2520sides%2520and%2520a%2520flexible%2520mesh%2520upper%2520in%2520blue%2520and%2520teal%2520tones.%2520The%2520outsole%2520has%2520a%2520pattern%2520resembling%2520water%2520ripples.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product2&orientation=landscape" alt="AquaFlow Runner Sports Shoe" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520lightweight%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520flowing%2520water%252C%2520featuring%2520fluid%2520wave-like%2520patterns%2520on%2520the%2520sides%2520and%2520a%2520flexible%2520mesh%2520upper%2520in%2520blue%2520and%2520teal%2520tones.%2520The%2520outsole%2520has%2520a%2520pattern%2520resembling%2520water%2520ripples.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product2&orientation=landscape" alt="AquaFlow Runner Sports Shoe" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">AquaFlow Runner</h3>
@@ -357,10 +360,15 @@ input:focus, button:focus {
             </div>
             
             <!-- Product 3 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">Limited Edition</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520high-performance%2520basketball%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520bird%2520wings%252C%2520featuring%2520feather-like%2520overlays%2520and%2520an%2520aerodynamic%2520silhouette.%2520The%2520shoe%2520has%2520a%2520black%2520base%2520with%2520vibrant%2520purple%2520and%2520gold%2520accents.%2520The%2520outsole%2520pattern%2520resembles%2520bird%2520talons%2520for%2520grip.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product3&orientation=landscape" alt="SkyRise Pro Sports Shoe" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520high-performance%2520basketball%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520bird%2520wings%252C%2520featuring%2520feather-like%2520overlays%2520and%2520an%2520aerodynamic%2520silhouette.%2520The%2520shoe%2520has%2520a%2520black%2520base%2520with%2520vibrant%2520purple%2520and%2520gold%2520accents.%2520The%2520outsole%2520pattern%2520resembles%2520bird%2520talons%2520for%2520grip.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product3&orientation=landscape" alt="SkyRise Pro Sports Shoe" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">SkyRise Pro</h3>
@@ -385,10 +393,15 @@ input:focus, button:focus {
             </div>
             
             <!-- Product 4 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">Most Popular</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520minimalist%2520cross-training%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520bamboo%2520structures%252C%2520featuring%2520a%2520lightweight%2520knit%2520upper%2520with%2520geometric%2520patterns%2520and%2520a%2520flexible%2520sole.%2520The%2520shoe%2520has%2520natural%2520beige%2520and%2520sage%2520green%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product4&orientation=landscape" alt="BambooFlex Trainer" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520minimalist%2520cross-training%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520bamboo%2520structures%252C%2520featuring%2520a%2520lightweight%2520knit%2520upper%2520with%2520geometric%2520patterns%2520and%2520a%2520flexible%2520sole.%2520The%2520shoe%2520has%2520natural%2520beige%2520and%2520sage%2520green%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product4&orientation=landscape" alt="BambooFlex Trainer" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">BambooFlex Trainer</h3>
@@ -413,10 +426,15 @@ input:focus, button:focus {
             </div>
             
             <!-- Product 5 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">New Collection</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520high-tech%2520tennis%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520honeycomb%2520structures%252C%2520featuring%2520hexagonal%2520patterns%2520on%2520the%2520sides%2520and%2520a%2520responsive%2520cushioning%2520system.%2520The%2520shoe%2520has%2520white%2520and%2520golden%2520yellow%2520accents.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product5&orientation=landscape" alt="HoneyCourt Pro" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520high-tech%2520tennis%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520honeycomb%2520structures%252C%2520featuring%2520hexagonal%2520patterns%2520on%2520the%2520sides%2520and%2520a%2520responsive%2520cushioning%2520system.%2520The%2520shoe%2520has%2520white%2520and%2520golden%2520yellow%2520accents.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product5&orientation=landscape" alt="HoneyCourt Pro" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">HoneyCourt Pro</h3>
@@ -441,10 +459,15 @@ input:focus, button:focus {
             </div>
             
             <!-- Product 6 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">Premium</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520premium%2520lifestyle%2520sneaker%2520with%2520a%2520design%2520inspired%2520by%2520desert%2520landscapes%252C%2520featuring%2520sand%2520dune%2520patterns%2520and%2520a%2520comfortable%2520knit%2520upper.%2520The%2520shoe%2520has%2520warm%2520sand%2520and%2520sunset%2520orange%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product6&orientation=landscape" alt="DesertDrift Lifestyle" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520premium%2520lifestyle%2520sneaker%2520with%2520a%2520design%2520inspired%2520by%2520desert%2520landscapes%252C%2520featuring%2520sand%2520dune%2520patterns%2520and%2520a%2520comfortable%2520knit%2520upper.%2520The%2520shoe%2520has%2520warm%2520sand%2520and%2520sunset%2520orange%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product6&orientation=landscape" alt="DesertDrift Lifestyle" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">DesertDrift Lifestyle</h3>
@@ -469,10 +492,15 @@ input:focus, button:focus {
             </div>
             
             <!-- Product 7 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">Eco-Friendly</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520high-end%2520modern%2520sports%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520tree%2520roots%2520and%2520leaves%252C%2520featuring%2520organic%2520flowing%2520lines%2520and%2520natural%2520textures.%2520The%2520shoe%2520has%2520a%2520forest%2520green%2520and%2520earth%2520tone%2520color%2520scheme%2520with%2520subtle%2520leaf%2520vein%2520patterns%2520on%2520the%2520sides.%2520The%2520shoe%2520is%2520photographed%2520from%2520a%25203%252F4%2520angle%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product7&orientation=landscape" alt="EcoStride Pro" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520high-end%2520modern%2520sports%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520tree%2520roots%2520and%2520leaves%252C%2520featuring%2520organic%2520flowing%2520lines%2520and%2520natural%2520textures.%2520The%2520shoe%2520has%2520a%2520forest%2520green%2520and%2520earth%2520tone%2520color%2520scheme%2520with%2520subtle%2520leaf%2520vein%2520patterns%2520on%2520the%2520sides.%2520The%2520shoe%2520is%2520photographed%2520from%2520a%25203%252F4%2520angle%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product7&orientation=landscape" alt="EcoStride Pro" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">EcoStride Pro</h3>
@@ -497,10 +525,15 @@ input:focus, button:focus {
             </div>
             
             <!-- Product 8 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">New Season</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520lightweight%2520hiking%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520forest%2520floor%2520textures%252C%2520featuring%2520a%2520breathable%2520upper%2520with%2520leaf-like%2520patterns%2520and%2520a%2520rugged%2520outsole.%2520The%2520shoe%2520has%2520moss%2520green%2520and%2520bark%2520brown%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product8&orientation=landscape" alt="ForestPath Hiker" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520lightweight%2520hiking%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520forest%2520floor%2520textures%252C%2520featuring%2520a%2520breathable%2520upper%2520with%2520leaf-like%2520patterns%2520and%2520a%2520rugged%2520outsole.%2520The%2520shoe%2520has%2520moss%2520green%2520and%2520bark%2520brown%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product8&orientation=landscape" alt="ForestPath Hiker" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">ForestPath Hiker</h3>
@@ -525,10 +558,15 @@ input:focus, button:focus {
             </div>
             
             <!-- Product 9 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">Recycled Materials</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520casual%2520slip-on%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520ocean%2520waves%252C%2520featuring%2520a%2520knit%2520upper%2520with%2520wave-like%2520patterns%2520and%2520a%2520comfortable%2520sole.%2520The%2520shoe%2520has%2520ocean%2520blue%2520and%2520seafoam%2520green%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product9&orientation=landscape" alt="OceanWave Slip-On" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520casual%2520slip-on%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520ocean%2520waves%252C%2520featuring%2520a%2520knit%2520upper%2520with%2520wave-like%2520patterns%2520and%2520a%2520comfortable%2520sole.%2520The%2520shoe%2520has%2520ocean%2520blue%2520and%2520seafoam%2520green%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product9&orientation=landscape" alt="OceanWave Slip-On" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">OceanWave Slip-On</h3>
@@ -553,10 +591,15 @@ input:focus, button:focus {
             </div>
             
             <!-- Product 10 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">Limited Stock</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520high-performance%2520cycling%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520insect%2520exoskeletons%252C%2520featuring%2520a%2520rigid%2520carbon%2520fiber%2520sole%2520and%2520a%2520secure%2520fit%2520system.%2520The%2520shoe%2520has%2520black%2520and%2520bright%2520red%2520accents.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product10&orientation=landscape" alt="VeloSwift Cycling" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520high-performance%2520cycling%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520insect%2520exoskeletons%252C%2520featuring%2520a%2520rigid%2520carbon%2520fiber%2520sole%2520and%2520a%2520secure%2520fit%2520system.%2520The%2520shoe%2520has%2520black%2520and%2520bright%2520red%2520accents.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product10&orientation=landscape" alt="VeloSwift Cycling" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">VeloSwift Cycling</h3>
@@ -581,10 +624,15 @@ input:focus, button:focus {
             </div>
             
             <!-- Product 11 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">Bestseller</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520minimalist%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520sand%2520dunes%252C%2520featuring%2520a%2520lightweight%2520mesh%2520upper%2520with%2520flowing%2520lines%2520and%2520a%2520responsive%2520sole.%2520The%2520shoe%2520has%2520desert%2520tan%2520and%2520sunset%2520orange%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product11&orientation=landscape" alt="DuneRunner Lite" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520minimalist%2520running%2520shoe%2520with%2520a%2520design%2520inspired%2520by%2520sand%2520dunes%252C%2520featuring%2520a%2520lightweight%2520mesh%2520upper%2520with%2520flowing%2520lines%2520and%2520a%2520responsive%2520sole.%2520The%2520shoe%2520has%2520desert%2520tan%2520and%2520sunset%2520orange%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product11&orientation=landscape" alt="DuneRunner Lite" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">DuneRunner Lite</h3>
@@ -609,10 +657,15 @@ input:focus, button:focus {
             </div>
             
             <!-- Product 12 -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group relative">
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <span class="eco-badge">Eco-Friendly</span>
-                    <img src="https://readdy.ai/api/search-image?query=A%2520winter%2520hiking%2520boot%2520with%2520a%2520design%2520inspired%2520by%2520pine%2520cones%252C%2520featuring%2520a%2520waterproof%2520upper%2520with%2520scale-like%2520patterns%2520and%2520an%2520insulated%2520lining.%2520The%2520boot%2520has%2520dark%2520brown%2520and%2520forest%2520green%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product12&orientation=landscape" alt="PineCone Alpine Boot" class="w-full h-full object-cover object-top product-image transition-all duration-500">
+                    <img src="https://readdy.ai/api/search-image?query=A%2520winter%2520hiking%2520boot%2520with%2520a%2520design%2520inspired%2520by%2520pine%2520cones%252C%2520featuring%2520a%2520waterproof%2520upper%2520with%2520scale-like%2520patterns%2520and%2520an%2520insulated%2520lining.%2520The%2520boot%2520has%2520dark%2520brown%2520and%2520forest%2520green%2520tones.%2520Photographed%2520against%2520a%2520clean%2520white%2520background%2520with%2520soft%2520shadows.&width=600&height=400&seq=product12&orientation=landscape" alt="PineCone Alpine Boot" class="w-full h-full object-cover product-image transform transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="quick-view-btn bg-white text-primary px-4 py-2 rounded-button font-medium hover:bg-primary hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            Quick View
+                        </button>
+                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">PineCone Alpine Boot</h3>
@@ -853,6 +906,68 @@ input:focus, button:focus {
                 </button>
             </div>
             <div id="search-results" class="space-y-4"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick View Modal -->
+<div id="quick-view-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl">
+        <div class="bg-white rounded-lg mx-4 overflow-hidden">
+            <div class="flex justify-end p-4">
+                <button id="close-quick-view" class="text-gray-500 hover:text-gray-700">
+                    <i class="ri-close-line ri-2x"></i>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
+                <div class="relative">
+                    <div class="aspect-w-1 aspect-h-1">
+                        <img id="quick-view-image" src="" alt="" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <div class="flex justify-center mt-4 gap-2 quick-view-thumbnails">
+                        <!-- Thumbnails will be added dynamically -->
+                    </div>
+                </div>
+                <div>
+                    <h2 id="quick-view-title" class="text-2xl font-bold mb-2"></h2>
+                    <p id="quick-view-description" class="text-gray-600 mb-4"></p>
+                    <div class="flex items-center mb-4">
+                        <div id="quick-view-rating" class="flex"></div>
+                        <span id="quick-view-review-count" class="ml-2 text-gray-600 text-sm"></span>
+                    </div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span id="quick-view-price" class="text-2xl font-bold text-primary"></span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-700">Size:</span>
+                            <select class="border border-gray-300 rounded-button px-3 py-2 focus:border-primary focus:ring-2 focus:ring-primary/30">
+                                <option value="7">US 7</option>
+                                <option value="8">US 8</option>
+                                <option value="9">US 9</option>
+                                <option value="10">US 10</option>
+                                <option value="11">US 11</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 mb-6">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2">
+                                <button class="w-8 h-8 flex items-center justify-center border rounded-full hover:border-primary hover:text-primary transition-all duration-300">-</button>
+                                <span class="w-12 text-center">1</span>
+                                <button class="w-8 h-8 flex items-center justify-center border rounded-full hover:border-primary hover:text-primary transition-all duration-300">+</button>
+                            </div>
+                        </div>
+                        <button class="flex-[2] bg-primary text-white py-3 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300">
+                            Add to Cart
+                        </button>
+                    </div>
+                    <div class="border-t pt-6">
+                        <h3 class="font-bold mb-2">Product Features:</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <!-- Features will be added dynamically -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -1258,98 +1373,214 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartCount = document.querySelector('.cart-count');
     const cartItemsContainer = document.querySelector('#cart-panel .space-y-6');
     const subtotalElement = document.querySelector('#cart-panel .flex.justify-between span:last-child');
-    
+    const checkoutButton = document.querySelector('#cart-panel button:last-child');
+
+    // Add to cart buttons
+    const addToCartButtons = document.querySelectorAll('.product-card button');
+
+    // Update cart count
+    function updateCartCount() {
+        const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.textContent = totalItems;
+        document.querySelector('#cart-panel h3').textContent = `Shopping Cart (${totalItems})`;
+        // Save to localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+
+    // Calculate and update subtotal
+    function updateSubtotal() {
+        const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+        // Save to localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+
+    // Render cart items
+    function renderCartItems() {
+        cartItemsContainer.innerHTML = cartItems.map(item => `
+            <div class="flex items-center gap-4" data-item-id="${item.id}">
+                <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-lg">
+                <div class="flex-1">
+                    <h4 class="font-medium">${item.name}</h4>
+                    <div class="flex items-center space-x-2">
+                        <button class="decrease-quantity w-6 h-6 flex items-center justify-center border rounded-full">-</button>
+                        <span class="quantity w-8 text-center">${item.quantity}</span>
+                        <button class="increase-quantity w-6 h-6 flex items-center justify-center border rounded-full">+</button>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="font-medium">$${(item.price * item.quantity).toFixed(2)}</p>
+                    <button class="remove-item text-red-500 hover:text-red-700 mt-2">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            </div>
+        `).join('');
+
+        // Add event listeners to buttons
+        cartItemsContainer.querySelectorAll('.decrease-quantity').forEach(button => {
+            button.addEventListener('click', decreaseQuantity);
+        });
+
+        cartItemsContainer.querySelectorAll('.increase-quantity').forEach(button => {
+            button.addEventListener('click', increaseQuantity);
+        });
+
+        cartItemsContainer.querySelectorAll('.remove-item').forEach(button => {
+            button.addEventListener('click', removeItem);
+        });
+    }
+
+    // Decrease quantity
+    function decreaseQuantity(e) {
+        const itemContainer = e.target.closest('[data-item-id]');
+        const itemId = parseInt(itemContainer.dataset.itemId);
+        const item = cartItems.find(item => item.id === itemId);
+
+        if (item && item.quantity > 1) {
+            item.quantity--;
+            itemContainer.querySelector('.quantity').textContent = item.quantity;
+            itemContainer.querySelector('.text-right .font-medium').textContent = 
+                `$${(item.price * item.quantity).toFixed(2)}`;
+            updateCartCount();
+            updateSubtotal();
+        }
+    }
+
+    // Increase quantity
+    function increaseQuantity(e) {
+        const itemContainer = e.target.closest('[data-item-id]');
+        const itemId = parseInt(itemContainer.dataset.itemId);
+        const item = cartItems.find(item => item.id === itemId);
+
+        if (item) {
+            item.quantity++;
+            itemContainer.querySelector('.quantity').textContent = item.quantity;
+            itemContainer.querySelector('.text-right .font-medium').textContent = 
+                `$${(item.price * item.quantity).toFixed(2)}`;
+            updateCartCount();
+            updateSubtotal();
+        }
+    }
+
+    // Remove item
+    function removeItem(e) {
+        const itemContainer = e.target.closest('[data-item-id]');
+        const itemId = parseInt(itemContainer.dataset.itemId);
+        cartItems = cartItems.filter(item => item.id !== itemId);
+        
+        // Animate removal
+        itemContainer.style.opacity = '0';
+        itemContainer.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            renderCartItems();
+            updateCartCount();
+            updateSubtotal();
+        }, 300);
+    }
+
+    // Add item to cart
+    function addToCart(product) {
+        const existingItem = cartItems.find(item => item.id === product.id);
+        
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cartItems.push({...product, quantity: 1});
+        }
+
+        // Show notification
+        showNotification(`${product.name} added to cart`);
+        
+        // Update cart
+        renderCartItems();
+        updateCartCount();
+        updateSubtotal();
+        
+        // Open cart panel
+        cartPanel.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Show notification
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-20 right-4 bg-primary text-white px-4 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+        notification.innerHTML = `
+            <div class="flex items-center">
+                <i class="ri-check-line ri-lg mr-2"></i>
+                <div>${message}</div>
+            </div>
+        `;
+        document.body.appendChild(notification);
+
+        setTimeout(() => notification.classList.remove('translate-x-full'), 100);
+        setTimeout(() => {
+            notification.classList.add('translate-x-full');
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+
+    // Event Listeners
     cartButton.addEventListener('click', () => {
         cartPanel.classList.remove('translate-x-full');
         document.body.style.overflow = 'hidden';
     });
-    
+
     closeCart.addEventListener('click', () => {
         cartPanel.classList.add('translate-x-full');
         document.body.style.overflow = '';
     });
-    
-    // Search functionality
-    const searchButton = document.getElementById('search-button');
-    const searchModal = document.getElementById('search-modal');
-    const closeSearch = document.getElementById('close-search');
-    
-    searchButton.addEventListener('click', () => {
-        searchModal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-        document.getElementById('search-input').focus();
-    });
-    
-    closeSearch.addEventListener('click', () => {
-        searchModal.classList.add('hidden');
-        document.body.style.overflow = '';
-    });
-    
-    // Close modals when clicking outside
-    searchModal.addEventListener('click', function(event) {
-        if (event.target === searchModal) {
-            searchModal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-    });
-    
-    // Quantity controls in cart
-    const quantityButtons = document.querySelectorAll('.flex-1 .flex button');
-    quantityButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const quantitySpan = this.parentElement.querySelector('span');
-            let quantity = parseInt(quantitySpan.textContent);
+
+    // Add click handlers for product buttons
+    addToCartButtons.forEach(button => {
+        button.innerHTML = '<i class="ri-shopping-cart-line mr-2"></i>Add to Cart';
+        
+        button.addEventListener('click', (e) => {
+            const productCard = e.target.closest('.product-card');
+            const name = productCard.querySelector('h3')?.textContent || "EcoStride Pro";
+            const priceElement = productCard.querySelector('.text-primary') || document.querySelector('.featured-product .text-primary');
+            const price = parseFloat(priceElement.textContent.replace('$', ''));
+            const imageElement = productCard.querySelector('img') || document.querySelector('.featured-product img');
             
-            if (this.textContent === '+') {
-                quantity++;
-            } else if (this.textContent === '-' && quantity > 1) {
-                quantity--;
-            }
-            
-            quantitySpan.textContent = quantity;
+            const product = {
+                id: parseInt(Math.random() * 1000),
+                name: name,
+                price: price,
+                image: imageElement.src
+            };
+            addToCart(product);
         });
     });
-    
-    // Pagination
-    const paginationButtons = document.querySelectorAll('.pagination-button');
-    paginationButtons.forEach(button => {
-        if (!button.classList.contains('active') && !button.disabled) {
-            button.addEventListener('click', function() {
-                paginationButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Simulate page change
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-                
-                simulateLoading();
-            });
+
+    // Listen for storage changes from other tabs/windows
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'cartItems') {
+            cartItems = JSON.parse(e.newValue || '[]');
+            renderCartItems();
+            updateCartCount();
+            updateSubtotal();
         }
     });
-    
-    // Items per page selector
-    const itemsPerPageSelect = document.getElementById('items-per-page');
-    itemsPerPageSelect.addEventListener('change', function() {
-        simulateLoading();
+
+    // Initialize cart
+    cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    renderCartItems();
+    updateCartCount();
+    updateSubtotal();
+
+    // Add event listener for custom add-to-cart event from quick view
+    document.addEventListener('add-to-cart', (e) => {
+        const product = e.detail;
+        addToCart(product);
     });
-    
-    // Function to simulate loading state
-    function simulateLoading() {
-        const productsGrid = document.getElementById('products-grid');
-        const loadingState = document.getElementById('loading-state');
-        
-        // Show loading state
-        productsGrid.classList.add('hidden');
-        loadingState.classList.remove('hidden');
-        
-        // Simulate API call delay
-        setTimeout(() => {
-            loadingState.classList.add('hidden');
-            productsGrid.classList.remove('hidden');
-        }, 800);
-    }
+
+    // Add checkout handler
+    checkoutButton.addEventListener('click', () => {
+        if (cartItems.length > 0) {
+            alert('Proceeding to checkout...');
+        }
+    });
 });
 </script>
 
@@ -1410,6 +1641,197 @@ document.addEventListener('DOMContentLoaded', function() {
             button.classList.remove('scale-105');
         });
     });
+    
+    // Quick View functionality
+    const quickViewButtons = document.querySelectorAll('.quick-view-btn');
+    quickViewButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const productCard = this.closest('.product-card');
+            const productName = productCard.querySelector('h3').textContent;
+            const productDescription = productCard.querySelector('p').textContent;
+            const productPrice = productCard.querySelector('.text-primary').textContent;
+            const productImage = productCard.querySelector('.product-image').src;
+            const productRating = productCard.querySelectorAll('.ri-star-fill, .ri-star-half-fill');
+            const reviewCount = productCard.querySelector('.text-sm').textContent;
+            
+            // Set Quick View content
+            document.getElementById('quick-view-title').textContent = productName;
+            document.getElementById('quick-view-description').textContent = productDescription;
+            document.getElementById('quick-view-price').textContent = productPrice;
+            document.getElementById('quick-view-image').src = productImage;
+            
+            // Set rating stars
+            const quickViewRating = document.getElementById('quick-view-rating');
+            quickViewRating.innerHTML = '';
+            productRating.forEach(star => {
+                const starClone = star.cloneNode(true);
+                quickViewRating.appendChild(starClone);
+            });
+            
+            // Set review count
+            document.getElementById('quick-view-review-count').textContent = reviewCount;
+            
+            // Open Quick View modal
+            const quickViewModal = document.getElementById('quick-view-modal');
+            quickViewModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // Close Quick View modal
+    const closeQuickView = document.getElementById('close-quick-view');
+    closeQuickView.addEventListener('click', function() {
+        const quickViewModal = document.getElementById('quick-view-modal');
+        quickViewModal.classList.add('hidden');
+        document.body.style.overflow = '';
+    });
+    
+    // Close Quick View modal when clicking outside
+    document.addEventListener('click', function(event) {
+        const quickViewModal = document.getElementById('quick-view-modal');
+        if (quickViewModal.classList.contains('hidden') === false && !quickViewModal.contains(event.target) && event.target !== closeQuickView) {
+            quickViewModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+});
+</script>
+
+<script id="quick-view-script">
+document.addEventListener('DOMContentLoaded', function() {
+    const quickViewModal = document.getElementById('quick-view-modal');
+    const closeQuickView = document.getElementById('close-quick-view');
+    const quickViewButtons = document.querySelectorAll('.quick-view-btn');
+    let currentProduct = null; // Store current product data
+
+    // Quick View Button Click Handler
+    quickViewButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const productCard = this.closest('.product-card');
+            currentProduct = {
+                id: parseInt(Math.random() * 1000), // Generate unique ID
+                image: productCard.querySelector('.product-image').src,
+                name: productCard.querySelector('h3').textContent,
+                description: productCard.querySelector('p').textContent,
+                price: parseFloat(productCard.querySelector('.text-primary').textContent.replace('$', '')),
+                rating: productCard.querySelectorAll('.ri-star-fill, .ri-star-half-fill').length,
+                reviewCount: productCard.querySelector('.ml-2').textContent
+            };
+
+            // Update Quick View Modal Content
+            const quickViewContent = `
+                <div class="relative">
+                    <img src="${currentProduct.image}" alt="${currentProduct.name}" class="w-full h-auto rounded-lg" id="quick-view-image">
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold mb-2" id="quick-view-title">${currentProduct.name}</h2>
+                    <p class="text-gray-600 mb-4" id="quick-view-description">${currentProduct.description}</p>
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400" id="quick-view-rating">
+                            ${Array(currentProduct.rating).fill('<i class="ri-star-fill"></i>').join('')}
+                        </div>
+                        <span class="ml-2 text-gray-600 text-sm" id="quick-view-review-count">${currentProduct.reviewCount}</span>
+                    </div>
+                    <div class="text-2xl font-bold text-primary mb-6" id="quick-view-price">$${currentProduct.price.toFixed(2)}</div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2">Quantity</label>
+                        <div class="flex items-center w-32">
+                            <button type="button" class="quantity-btn decrease w-8 h-8 flex items-center justify-center border border-gray-300 rounded-l hover:border-primary hover:text-primary">-</button>
+                            <input type="number" class="quantity-input w-16 h-8 border-t border-b border-gray-300 text-center" value="1" min="1">
+                            <button type="button" class="quantity-btn increase w-8 h-8 flex items-center justify-center border border-gray-300 rounded-r hover:border-primary hover:text-primary">+</button>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="quick-view-add-to-cart w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300">
+                        <i class="ri-shopping-cart-line mr-2"></i>Add to Cart
+                    </button>
+                </div>
+            `;
+
+            // Update modal content
+            const modalContent = quickViewModal.querySelector('.grid');
+            modalContent.innerHTML = quickViewContent;
+
+            // Add event listeners for quantity buttons
+            const quantityInput = modalContent.querySelector('.quantity-input');
+            modalContent.querySelector('.decrease').addEventListener('click', () => {
+                const currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                }
+            });
+
+            modalContent.querySelector('.increase').addEventListener('click', () => {
+                const currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+            });
+
+            // Add event listener for add to cart button
+            modalContent.querySelector('.quick-view-add-to-cart').addEventListener('click', () => {
+                const quantity = parseInt(quantityInput.value);
+                if (quantity > 0) {
+                    // Create product object with quantity
+                    const productToAdd = {
+                        ...currentProduct,
+                        quantity: quantity
+                    };
+                    
+                    // Dispatch custom event for cart update
+                    const addToCartEvent = new CustomEvent('add-to-cart', {
+                        detail: productToAdd
+                    });
+                    document.dispatchEvent(addToCartEvent);
+
+                    // Show success notification
+                    showNotification(`${currentProduct.name} (${quantity}) added to cart`);
+
+                    // Close modal
+                    quickViewModal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Show Modal
+            quickViewModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close Quick View Modal
+    closeQuickView.addEventListener('click', () => {
+        quickViewModal.classList.add('hidden');
+        document.body.style.overflow = '';
+    });
+
+    // Close Modal when clicking outside
+    quickViewModal.addEventListener('click', function(e) {
+        if (e.target === quickViewModal) {
+            quickViewModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Show notification function
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-20 right-4 bg-primary text-white px-4 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+        notification.innerHTML = `
+            <div class="flex items-center">
+                <i class="ri-check-line ri-lg mr-2"></i>
+                <div>${message}</div>
+            </div>
+        `;
+        document.body.appendChild(notification);
+
+        setTimeout(() => notification.classList.remove('translate-x-full'), 100);
+        setTimeout(() => {
+            notification.classList.add('translate-x-full');
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
 });
 </script>
 </body>
