@@ -524,7 +524,6 @@ Add to Cart
 </div>
 </div>
 </div>
-</div>
 </section>
 <!-- Sustainability Section -->
 <!-- Filter Section -->
@@ -536,87 +535,7 @@ Add to Cart
                 <span class="text-gray-500 text-sm">24 products</span>
             </div>
             <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
-                <!-- Category Dropdown -->
-                <div class="relative w-full md:w-44">
-                    <button id="category-dropdown-button" class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-button text-gray-700 bg-white">
-                        <span id="selected-category">All Categories</span>
-                        <i class="ri-arrow-down-s-line"></i>
-                    </button>
-                    <div id="category-dropdown" class="hidden absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
-                        <div class="p-2 max-h-60 overflow-y-auto">
-                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="all">All Categories</div>
-                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="running">Running</div>
-                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="trail">Trail</div>
-                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="fitness">Fitness</div>
-                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="basketball">Basketball</div>
-                            <div class="category-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="lifestyle">Lifestyle</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Price Range Dropdown -->
-                <div class="relative w-full md:w-44">
-                    <button id="price-dropdown-button" class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-button text-gray-700 bg-white">
-                        <span id="selected-price">Price Range</span>
-                        <i class="ri-arrow-down-s-line"></i>
-                    </button>
-                    <div id="price-dropdown" class="hidden absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
-                        <div class="p-4">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-sm text-gray-600">Min: $<span id="min-price-display">0</span></span>
-                                <span class="text-sm text-gray-600">Max: $<span id="max-price-display">300</span></span>
-                            </div>
-                            <div class="flex items-center gap-2 mb-4">
-                                <input type="range" id="min-price-range" min="0" max="300" value="0" class="custom-range">
-                                <input type="range" id="max-price-range" min="0" max="300" value="300" class="custom-range">
-                            </div>
-                            <button id="apply-price" class="w-full bg-primary text-white py-2 rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">Apply</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Color Dropdown -->
-                <div class="relative w-full md:w-44">
-                    <button id="color-dropdown-button" class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-button text-gray-700 bg-white">
-                        <span id="selected-color">Color</span>
-                        <i class="ri-arrow-down-s-line"></i>
-                    </button>
-                    <div id="color-dropdown" class="hidden absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
-                        <div class="p-4">
-                            <div class="flex flex-wrap gap-3">
-                                <div class="color-filter-option flex items-center gap-2 cursor-pointer" data-color="green">
-                                    <div class="w-6 h-6 rounded-full bg-primary"></div>
-                                    <span>Green</span>
-                                </div>
-                                <div class="color-filter-option flex items-center gap-2 cursor-pointer" data-color="brown">
-                                    <div class="w-6 h-6 rounded-full bg-[#8B4513]"></div>
-                                    <span>Brown</span>
-                                </div>
-                                <div class="color-filter-option flex items-center gap-2 cursor-pointer" data-color="gray">
-                                    <div class="w-6 h-6 rounded-full bg-gray-500"></div>
-                                    <span>Gray</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sort Dropdown -->
-                <div class="relative w-full md:w-44">
-                    <button id="sort-dropdown-button" class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-button text-gray-700 bg-white">
-                        <span id="selected-sort">Sort By: Newest</span>
-                        <i class="ri-arrow-down-s-line"></i>
-                    </button>
-                    <div id="sort-dropdown" class="hidden absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
-                        <div class="p-2">
-                            <div class="sort-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="newest">Newest</div>
-                            <div class="sort-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="price-low">Price: Low to High</div>
-                            <div class="sort-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="price-high">Price: High to Low</div>
-                            <div class="sort-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="popular">Most Popular</div>
-                            <div class="sort-option cursor-pointer hover:bg-gray-100 px-3 py-2 rounded-lg" data-value="rating">Highest Rated</div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Đã xóa toàn bộ filter dropdown theo yêu cầu -->
             </div>
         </div>
 
@@ -1307,6 +1226,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const item = cartItems.find(item => item.id === itemId);
 
         if (item) {
+           
             item.quantity++;
             itemContainer.querySelector('.quantity').textContent = item.quantity;
             itemContainer.querySelector('.text-right .font-medium').textContent = 
